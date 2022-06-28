@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/landing_page/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,13 +26,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      home: const LandingPage(),
+      home:  HomePage(),
     );
   }
 }
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +41,24 @@ class LandingPage extends StatelessWidget {
         title: const Text('Bolos'),
         elevation: 0.0,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.black38, Colors.teal])
-        ),
-        child: Column(
-          children: const [
-            Navbar(),
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Colors.black38, Colors.teal])
+          ),
+          child: Column(
+            children:  [
+              const Navbar(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 40.0),
+                child: LandingPage(),
+              ),
 
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -88,6 +95,7 @@ class WebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // constraints: BoxConstraints(maxWidth: 1150),
       padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,6 +179,11 @@ class MobileView extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
 
 
 
